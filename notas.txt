@@ -1,0 +1,32 @@
+Reemplazando el app.listen
+
+const server = app.listen(Listen_PORT, function())
+
+const server = app.listen(Listen_Port, function() {
+    console.log('Servidor NodeJS corriendo en http://localhost:' + Listen_Port + '/');
+});
+
+const io = require('socket.io')(server);
+
+const sessionMiddleware = session({
+    secret: 'sararasthastka',
+    resave: true,
+    saveUninitialized: false,
+});
+
+app.use(sessionMiddleware);
+
+io.use(function(socket, next) {
+    sessionMiddleware(socket.request, socket.request.res, next);
+});
+
+
+const req = socket.request;
+
+
+Hora html css
+Cuantos mensajes no se vieron (Tabla)
+Refresh Mensaje no visto marcador
+
+
+hacer dos emit por mensajes y por conectados sacando los ifs de antes
